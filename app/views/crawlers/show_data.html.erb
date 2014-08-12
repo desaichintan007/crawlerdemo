@@ -1,0 +1,28 @@
+<h1>Result</h1>
+
+<br>
+<%= link_to "<< Back to Main Page", root_path %>
+<br>
+
+
+<b>Crawled Results:</b>
+<br><br>
+<% @content_list.each do |link,content| %>
+    <hr>
+    <h2><b><%= link %></b></h2>
+
+    <% if content.class.to_s=="Hash" %>
+        <% content.each do |l,c| %>
+            <div style="padding: 20px 50px 20px 50px;">
+                <b><%= l %></b>
+                <br>
+                <br>
+                <%= c %>
+            </div>
+        <% end %>
+    <% else %>
+        <%= content %>
+    <% end %>
+
+    <hr>
+<% end %>

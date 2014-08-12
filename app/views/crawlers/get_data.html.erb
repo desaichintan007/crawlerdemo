@@ -1,0 +1,43 @@
+<h1 xmlns="http://www.w3.org/1999/html">
+  <center>
+    ~: Crawler :~
+  </center>
+</h1>
+
+<hr><hr>
+<br><br>
+
+<div style="padding: 0 50px 0 50px;">
+  <%= form_tag show_data_path, :method => :get do %>
+
+      <fieldset>
+        <legend><b>Enter your list of URLs here..</b></legend>
+          <%= text_area_tag "list", nil, :rows=>10, :cols=>100 %>
+      </fieldset>
+
+      <br><br>
+
+      <fieldset>
+        <legend><b>Insert specific Class/Id to scrap specific data</b></legend>
+        <table>
+          <tr>
+            <td>Type</td>
+            <td>: <%= select_tag "element_type", options_for_select(["tag","class","id"]) %></td>
+          </tr>
+          <tr>
+            <td>Value</td>
+            <td>: <%= text_field_tag "element_value" %></td>
+          </tr>
+        </table>
+
+        <small style="color: red;">
+          *If nothing is inserted, by default content of '&lt;body&gt;' tag will be crawled<br>
+          *If <b>'Type</b>' is given but <b>'Value'</b> is not given then it will take content of '&lt;body&gt;' tag by default <br>
+          *Enter only single value in <b>'Value'</b>
+        </small>
+      </fieldset>
+      <br><br>
+      <%= submit_tag "Scrap These Pages" %>
+
+  <% end %>
+</div>

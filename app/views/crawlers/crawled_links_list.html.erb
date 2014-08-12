@@ -1,0 +1,46 @@
+<!--<h1 xmlns="http://www.w3.org/1999/html">-->
+  <!--<center>-->
+    <!--~: TF-IDF Search :~-->
+  <!--</center>-->
+<!--</h1>-->
+
+<!--<hr><hr>-->
+<!--<br><br>-->
+
+<!--<div style="padding: 0 50px 0 50px;">-->
+  <!--<fieldset>-->
+    <!--<legend>List of all links</legend>-->
+    <!--<br>-->
+    <!--<%# @links.each do |link| %>-->
+      <%#= link_to "#{link.url}", tf_idf_results_path(:id => link.id) %>
+        <!--<br><br>-->
+    <!--<%# end %>-->
+  <!--</fieldset>-->
+<!--</div>-->
+
+<h1>
+  <center>
+    ~: TF-IDF Search :~
+  </center>
+</h1>
+
+<hr><hr>
+<br><br>
+
+<div style="padding: 0 50px 0 50px;">
+  <fieldset>
+    <legend>List of all links</legend>
+    <br>
+    <% @sublinks_hash.each do |link,word_list| %>
+        <div style="color: blue; padding: 0 0 5px 20px; ">
+          <%= link_to "#{link.url}", tf_idf_results_path(:id => link.id) %>
+          <%#= link %>
+        </div>
+        <div style="padding:0 20px 20px 50px ;">
+          <% word_list.each do |word| %>
+              <%= word.first %>&nbsp;&nbsp;&nbsp;&nbsp;
+          <% end %>
+        </div>
+    <% end %>
+  </fieldset>
+</div>

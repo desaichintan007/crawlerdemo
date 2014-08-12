@@ -1,0 +1,30 @@
+<h1>
+  <center>
+    ~: TF-IDF Search Results:~
+  </center>
+</h1>
+
+<hr><hr>
+<br><br>
+
+<div style="padding: 0 50px 0 50px;">
+  <fieldset>
+    <br>
+    <% @sublinks_hash.each do |link,word_list| %>
+        <div style="color: blue; padding: 0 0 5px 20px; ">
+          <%= link %>
+        </div>
+        <div style="padding:0 20px 20px 50px ;">
+          <% word_list.reverse.each do |wrd| %>
+            <%= wrd %> &nbsp;&nbsp;&nbsp;&nbsp;
+          <% end %>
+          <%# word_list.each do |word| %>
+            <%#= raise word.inspect %>
+            <%# if @uniq_words.include?(word.first) %>
+              <%#= word.first %>&nbsp;&nbsp;&nbsp;&nbsp;
+            <%# end %>
+          <%# end %>
+        </div>
+    <% end %>
+  </fieldset>
+</div>

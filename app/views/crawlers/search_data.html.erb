@@ -1,0 +1,44 @@
+<center><h1>~: Search Page :~</h1></center>
+
+<hr><hr>
+<br><br>
+
+<%= render :partial => "crawlers/search_box" %>
+
+
+<% unless @search_results.blank? %>
+    <%= will_paginate @search_results.hits %>
+    <br>
+
+    <small>Total Search Results :</small> <b><%= @search_results.total %></b>
+    <br><br>
+    <div style="padding: 0 30px 0 30px;">
+      <fieldset>
+        <legend>Search Results</legend>
+          <% @search_results.each_hit_with_result do |hit, content| %>
+            <div style="padding: 10px 30px 10px 30px;">
+
+              <%= hit.highlight(:content).format{ |word| content_tag(:span, word)}.html_safe rescue "" %>
+                <div style="padding: 0 0 10px 10px;">
+                  <small><em><a href='<%= "#{content.url}" %>' target="_blank"><%= content.url %></a></em></small>
+                </div>
+            </div>
+          <% end %>
+        </fieldset>
+    </div>
+
+<% else %>
+    <div style="padding: 0 30px 0 30px;">
+      No Results
+    </div>
+<% end %>
+
+
+
+
+<style>
+  span {
+      font-weight: bold;
+      color: blue;
+  }
+</style>
