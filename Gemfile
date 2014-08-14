@@ -48,5 +48,5 @@ gem 'will_paginate'
 gem 'sunspot_solr'
 gem 'tf_idf'
 gem 'highscore'
+gem 'engineyard'
 #end
-
