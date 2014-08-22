@@ -49,4 +49,6 @@ gem 'sunspot_solr'
 gem 'tf_idf'
 gem 'highscore'
 gem 'engineyard'
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'devise'
 #end

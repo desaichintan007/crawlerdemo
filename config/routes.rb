@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get "/crawl_data" => "crawlers#get_data"
   get "/show_data" => "crawlers#show_data"
   get "/temp" => "crawlers#temp"
