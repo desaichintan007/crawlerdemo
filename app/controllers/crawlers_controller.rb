@@ -158,7 +158,7 @@ class CrawlersController < ApplicationController
     search_wrd = @search_word
 
     unless search_wrd.blank?
-      search = Sublink.search do
+      search = Sublink.solr_search do
         fulltext "#{search_wrd}" do
           highlight :content
         end
@@ -179,8 +179,7 @@ class CrawlersController < ApplicationController
 
     search_wrd = @search_word
     unless search_wrd.blank?
-
-      search = Sublink.search do
+      search = Sublink.solr_search do
         fulltext "#{search_wrd}" do
           highlight :content
         end
