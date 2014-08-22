@@ -5,7 +5,7 @@
 
 
 <%= render :partial => "crawlers/search_box" %>
-
+<% all_links = Link.all %>
 
 <% if @links_list.present? %>
   <div style="padding: 30px 30px 0 30px;">
@@ -13,7 +13,7 @@
     <legend>Search Results</legend>
     <% @links_list.each do |link| %>
       <div style="padding: 10px 30px 10px 30px;">
-        <span><%= link_to "#{link}", search_data_path(:link => link, :search_word => @search_word) %></span>
+        <span><%= link_to "#{link}", search_data_path(:link => link, :search_word => @search_word) %> <small>(<%= all_links.where(:url => link).first.revenue %>)</small></span>
       </div>
     <% end %>
   </fieldset>
