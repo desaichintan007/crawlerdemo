@@ -13,7 +13,7 @@
     <legend>Search Results</legend>
     <% @links_list.each do |link| %>
       <div style="padding: 10px 30px 10px 30px;">
-        <span><%= link_to "#{link}", search_data_path(:link => link, :search_word => @search_word) %> <small>(<%= all_links.where(:url => link).first.revenue %>)</small></span>
+        <span><%= link_to "#{link}", search_data_path(:link => link, :search_word => @search_word) %> <small>($ <%= number_with_delimiter(all_links.where(:url => link).first.revenue) %>)</small></span>
       </div>
     <% end %>
   </fieldset>
